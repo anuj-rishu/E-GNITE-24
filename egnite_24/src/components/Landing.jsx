@@ -53,20 +53,25 @@ const Landing = () => {
 
   return (
     <>
-      <div className="min-h-screen  flex  ">
+      <div className="min-h-96 mt-10 md:mt-16 lg:mt-20 xl:mt-20 mb-20 flex  ">
         {/* left  */}
-        <div className="  w-full md:w-[60%] lg:w-[60%] xl:w-[60%] ">
+        <div className="  z-20 w-full md:w-[60%] lg:w-[60%] xl:w-[60%] ">
           <div className="min-h-64 ">
-            <h1 className="font-bold text-6xl">
+            <h1 className="font-bold text-6xl md:text-6xl lg:text-7xl xl:text-8xl ">
               <span className="text-[#FB771B]">EGNITE'</span>24
             </h1>
-            <p className="mt-4">
+            <p className="mt-4  text-base md:text-base lg:text-xl xl:text-xl">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore
               animi magni commodi inventore eligendi, dolor debitis voluptatum.
               Esse iure itaque tempore? Nobis libero quidem ratione, soluta
               doloribus, deleniti totam dolorem aspernatur, id officiis fugiat.
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil cupiditate expedita, a, ipsum magni alias, dolores quaerat qui explicabo officiis iste corrupti repellat rem? Eaque, culpa. Voluptatem architecto voluptatibus tenetur, fuga eius quas. Nobis, natus perspiciatis repellat quam ipsum ut?deleniti totam dolorem aspernatur, id officiis fugiat.
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil cupiditate expedita, a, ipsum magni alias, dolores quaerat qui explicabo officiis iste corrupti repellat rem? Eaque, culpa. Voluptatem architecto voluptatibus tenetur, fuga eius quas. Nobis, natus perspiciatis repellat quam ipsum ut?
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil
+              cupiditate expedita, a, ipsum magni alias, dolores quaerat qui
+              explicabo officiis iste corrupti repellat rem? Eaque, culpa.
+              Voluptatem architecto voluptatibus tenetur, fuga eius quas. Nobis,
+              natus perspiciatis repellat quam ipsum ut?deleniti totam dolorem
+              aspernatur, id officiis fugiat. Lorem ipsum dolor sit amet
+              consectetur adipisicing elit. N
             </p>
           </div>
           {/* timer */}
@@ -76,9 +81,9 @@ const Landing = () => {
                 <>
                   <div
                     key={index}
-                    className="flex flex-col p-2  rounded-box text-[#FB771B]"
+                    className="flex flex-col p-2  font-semibold rounded-box text-[#FB771B]"
                   >
-                    <span className="countdown flex justify-center font-mono text-2xl sm:text-5xl md:text-5xl lg:text-6xl xl:text-6xl">
+                    <span className="countdown flex justify-center  font-semibold font-mono text-2xl sm:text-5xl md:text-5xl lg:text-6xl xl:text-6xl">
                       {timer.value}
                     </span>
                     {timer.label}
@@ -92,7 +97,7 @@ const Landing = () => {
               ))}
             </div>
           </div>
-          <div className="mt-6 mb-4 flex justify-center items-center">
+          <div className=" mb-2 mt-6 md:mt-6 lg:mt-10 xl:mt-20  flex justify-center items-center">
             <button className="rounded-lg px-3 py-2 bg-[#FB771B] flex items-center justify-center font-medium sm:font-semibold md:font-semibold lg:font-semibold xl:font-semibold text-white  text-xl sm:text-xl md:text-xl lg:text-xl xl:text-xl">
               Register with Google
               <FaArrowRightToBracket
@@ -103,7 +108,7 @@ const Landing = () => {
           </div>
         </div>
         {/* right */}
-        <div className="w-[40%] hidden md:flex lg:flex xl:flex justify-center items-center">
+        <div className="z-10 w-[40%] hidden md:flex lg:flex xl:flex justify-center items-center border border-orange-900">
           {/* image */}
           <div>
             <img src="/logo.svg" className="h-32 w-40" alt="" />

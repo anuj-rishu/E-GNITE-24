@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
+
 
 export const Navbar = () => {
   console.log("navbar");
@@ -21,10 +21,10 @@ export const Navbar = () => {
   };
 
   return (
-    <div className="flex justify-between bg-black  ">
+    <div className="flex justify-between bg-black  z-50 ">
       <div className="flex justify-start">
        
-          <img src="/logo.svg" className="h-32 w-40" alt="" />
+          <img href="/" src="/logo.svg" className="h-32 w-40" alt="" />
         
       </div>
       <div className="flex m-0">
@@ -50,7 +50,7 @@ export const Navbar = () => {
           ))}
         </ul>
       </div>
-      <div className=" flex justify-end items-center text-white">
+      <div className="z-50 flex justify-end items-center text-white">
         <div className="dropdown dropdown-left">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
             <svg
