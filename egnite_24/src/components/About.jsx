@@ -1,11 +1,14 @@
 import React from 'react'
+import Info from './Info'
 
 const About = () => {
   return (
     <>
-    <div className='min-h-screen bg-slate-300'>
+    <div className='min-h-screen '>
 
-    <h1 className='text-white'>About page</h1>
+    {/* <h1 className='text-white'>About page</h1> */}
+
+    <Info />
     </div>
     </>
   )

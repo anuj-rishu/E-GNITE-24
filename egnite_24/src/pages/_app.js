@@ -6,12 +6,17 @@ import "@/styles/globals.css";
 
 export default function App({ Component, pageProps }) {
   return(
-  <div className="mx-4  md:mx-14 lg:mx-16 xl:mx-16">
+    <>
+    <div className="mx-4  md:mx-14 lg:mx-16 xl:mx-16">
   <Navbar />
   
   
   <Component {...pageProps} />
-  <Footer />
   </div>
+  <Footer />
+    
+    
+    </>
+  
   )
 }
