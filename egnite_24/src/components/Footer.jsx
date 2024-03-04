@@ -15,7 +15,7 @@ const Footer = () => {
               <h1 className="text-white text-xl md:text-2xl lg:text-3xl xl:text-3xl
                 text-center pt-5 font-semibold bg-transparent">E-GNITE 24</h1>
             </div>
-            <p className=" hidden md:flex lg:flex xl:flex mt-4 pr-2 bg-transparent">
+            <p className=" hidden md:flex lg:flex xl:flex mt-4 pr-2 bg-transparent text-justify ">
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta similique, error sequi veritatis hic vitae obcaecati libero neque voluptas. Odio fugiat provident unde labore consequatur maiores modi aspernatur architecto porro? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente, ad. Consectetur a, praesentium perspiciatis soluta accusantium minus aperiam corrupti rem quis ea eos, modi error tempore. Nam incidunt delectus adipisci.
             </p>
             <p className="hidden sm:inline md:hidden lg:hidden xl:hidden bg-transparent mt-4 ml-2 text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, quasi nemo unde quam atque rem. Dolorum architecto cupiditate corrupti non?</p>

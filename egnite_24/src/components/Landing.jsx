@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Navbar } from "./Navbar";
 import { FaArrowRightToBracket } from "react-icons/fa6";
+import Speaker from "./Speaker";
 
 const Landing = () => {
   // State to store timer values
@@ -53,25 +54,21 @@ const Landing = () => {
 
   return (
     <>
-      <div className="min-h-96 mt-10 md:mt-16 lg:mt-20 xl:mt-20 mb-20 flex  ">
+      <div className=" h-auto mt-10 md:mt-16 lg:mt-20 xl:mt-20 mb-20 flex ">
         {/* left  */}
-        <div className="  z-20 w-full md:w-[60%] lg:w-[60%] xl:w-[60%] ">
-          <div className="min-h-64 ">
+        <div className=" z-20 w-full md:w-full lg:w-[50%] xl:w-[50%] ">
+          <div className="  min-h-64 ">
             <h1 className="font-bold text-6xl md:text-6xl lg:text-7xl xl:text-8xl ">
               <span className="text-[#FB771B]">EGNITE'</span>24
             </h1>
-            <p className="mt-4  text-base md:text-base lg:text-xl xl:text-xl">
+            <p className="mt-4  text-base md:text-base lg:text-xl xl:text-xl text-justify">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore
               animi magni commodi inventore eligendi, dolor debitis voluptatum.
               Esse iure itaque tempore? Nobis libero quidem ratione, soluta
               doloribus, deleniti totam dolorem aspernatur, id officiis fugiat.
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil
               cupiditate expedita, a, ipsum magni alias, dolores quaerat qui
-              explicabo officiis iste corrupti repellat rem? Eaque, culpa.
-              Voluptatem architecto voluptatibus tenetur, fuga eius quas. Nobis,
-              natus perspiciatis repellat quam ipsum ut?deleniti totam dolorem
-              aspernatur, id officiis fugiat. Lorem ipsum dolor sit amet
-              consectetur adipisicing elit. N
+              explicabo officiis iste corrupti repellat rem?
             </p>
           </div>
           {/* timer */}
@@ -108,13 +105,23 @@ const Landing = () => {
           </div>
         </div>
         {/* right */}
-        <div className="z-10 w-[40%] hidden md:flex lg:flex xl:flex justify-center items-center border border-orange-900">
+        <div className="z-10 drop-shadow-{40}  w-[50%] mt-2   px-4 hidden md:hidden lg:flex xl:flex justify-center">
           {/* image */}
-          <div>
-            <img src="/logo.svg" className="h-32 w-40" alt="" />
-          </div>
+          
+
+            <img src="/l_bg.svg" className=" relative   shadow-xl top-0  w-[100%] h-fit " alt="" />
+          
+          
+          
         </div>
       </div>
+
+    {/* Speaker Component */}
+    <div>
+
+      <Speaker/>
+    </div>
+
     </>
   );
 };
