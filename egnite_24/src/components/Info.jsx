@@ -1,32 +1,41 @@
-import React, { useState } from "react";
-import axios from 'axios';
-import QRCode from 'qrcode';
+import React, { useState, useRef } from "react";
+import axios from "axios";
+import QRCode from "qrcode";
 import Track from "./Track";
+import domtoimage from "dom-to-image";
+import { saveAs } from "file-saver";
+import { RiInstagramFill } from "react-icons/ri";
+import { IoLogoWhatsapp } from "react-icons/io";
+import { FaLinkedin } from "react-icons/fa";
+import { FaTwitter } from "react-icons/fa";
 
 const Info = () => {
   const [download, setDownload] = useState(false);
   const [formData, setFormData] = useState({});
   const [qrCode, setQrCode] = useState(null);
   const [ticketStatus, setTicketStatus] = useState(false);
+  const ticketRef = useRef();
 
-  // Function to handle ticket generation
+  // Function to handle ticket download
   const handleTicketDownload = () => {
-     // Update state to indicate ticket is generated
-    setDownload(true);
+    domtoimage.toBlob(ticketRef.current).then(function (blob) {
+      saveAs(blob, "Egnite'24-ticket.png");
+      setDownload(true);
+    });
   };
 
   // Function to handle ticket generation
   const handleTicketGeneration = async (event) => {
     event.preventDefault();
     // Update state to indicate ticket is generated
-    setTicketStatus(true); 
+    setTicketStatus(true);
 
     // Convert form data to QR code
     const qrCodeData = await QRCode.toDataURL(JSON.stringify(formData));
     setQrCode(qrCodeData);
 
     // Save form data to Google Sheets using Sheetdb API
-    const sheetyApiUrl = 'https://sheetdb.io/api/v1/88jgqxa15n2a2';
+    const sheetyApiUrl = "https://sheetdb.io/api/v1/88jgqxa15n2a2";
     await axios.post(sheetyApiUrl, formData);
   };
 
@@ -39,7 +48,7 @@ const Info = () => {
 
   return (
     <>
-          <header class="flex flex-col  sm:flex-col md:flex-col lg:flex-row xl:flex-row gap-5 justify-between mt-14 max-md:flex-wrap max-md:mt-10 max-md:max-w-full">
+      <header class="flex flex-col  sm:flex-col md:flex-col lg:flex-row xl:flex-row gap-5 justify-between mt-14 max-md:flex-wrap max-md:mt-10 max-md:max-w-full">
         {/* Page Tracker */}
         <Track ticketStatus={ticketStatus} download={download} />
 
@@ -48,7 +57,7 @@ const Info = () => {
         {ticketStatus ? (
           <>
             <div class="flex flex-col  items-center flex-1 max-w-full">
-              <div class="text-5xl mt-4 font-bold text-orange-600">
+              <div class="text-5xl mt-4 mb-8 font-bold text-orange-600">
                 <h1>YOUR TICKET</h1>
               </div>
               {/* ticket card */}
@@ -66,19 +75,52 @@ const Info = () => {
                         Join our whatsapp community and follow our social media
                         for latest updates
                       </h1>
-                      <div class=" mt-4 flex justify-center gap-1">
+                      <div class=" mt-4 flex justify-center  text-orange-500 text-2xl gap-4">
                         {/* logo */}
-                        <img src="" alt="1" />
-                        <img src="" alt="2" />
-                        <img src="" alt="3" />
+
+                        <a
+                          href="https://chat.whatsapp.com/LrLQvmr7vhJ56U96kYYabz"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <IoLogoWhatsapp />
+                        </a>
+                        <a
+                          href="https://www.instagram.com/ecell_srmist/"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <RiInstagramFill />
+                        </a>
+
+                        <a
+                          href="https://www.linkedin.com/company/e-cell-srmist/mycompany/"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <FaLinkedin />
+                        </a>
+
+                        <a
+                          href="https://twitter.com/ecellsrmist"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <FaTwitter />
+                        </a>
                       </div>
                     </div>
                   </div>
                 </>
               ) : (
                 <>
-                {/* // ticket card */}
-                  <div class="h-[60%] mt-14 flex flex-col md:flex-row lg:flex-row xl:flex-row items-center rounded-xl w-full p-7 bg-[#D0580496]">
+                  {/* // ticket card */}
+
+                  <div></div>
+                  <div
+                    ref={ticketRef}
+                    class="h-[60%] mt-0 flex flex-col md:flex-row lg:flex-row xl:flex-row items-center rounded-xl w-full p-7 bg-[#D0580496]"
+                  >
                     <div class="w-[80%] sm:w-[75%] lg:w-[60%] md:w-[60%] xl:w-[60%] bg-transparent text-white flex flex-col ">
                       <div class="bg-transparent">
                         <h1 class="bg-transparent text-3xl font-semibold text-center sm:text-center md:text-start lg:text-start xl:text-start">
@@ -113,9 +155,12 @@ const Info = () => {
                     <div class="mt-4 md:mt-0 lg:mt-0 xl:mt-0 h-px w-[80%]   lg:w-px lg:h-[260px]  xl:w-px xl:h-[260px]  md:w-px md:h-[260px]   text-white bg-white"></div>
                     <div class=" mt-4 md:mt-0 lg:mt-0 xl:mt-0 w-[40%] bg-transparent flex  justify-center items-center">
                       <div class="bg-slate-300 border border-blue-50 h-50 w-50">
-
                         {/* // QR code */}
-                        <img src={qrCode} alt="Qr" class=" bg-slate-200 text-black h-50 w-50" />
+                        <img
+                          src={qrCode}
+                          alt="Qr"
+                          class=" bg-slate-200 text-black h-50 w-50"
+                        />
                       </div>
                     </div>
                   </div>
@@ -125,7 +170,7 @@ const Info = () => {
                       class=" rounded-md bg-orange-600 p-2  w-72 text-center font-semibold text-white text-xl"
                       onClick={handleTicketDownload}
                     >
-                      DOWNLOAD
+                      DOWNLOAD TICKET
                     </button>
                   </div>
                 </>
@@ -143,12 +188,11 @@ const Info = () => {
                 />
               </div>
               <div class="self-center mt-5 text-base text-center">
-
                 {/* user name */}
                 Hi, ABCD EFGH
               </div>
 
-                {/* user refi name */}
+              {/* user refi name */}
               <div class="self-center mt-3.5 text-base text-center">
                 RA2XXXXXXXXXXX
               </div>
@@ -158,15 +202,34 @@ const Info = () => {
                 <div className="flex gap-5 justify-between pt-2 mt-5 whitespace-nowrap max-md:flex-wrap">
                   <div className="flex flex-col flex-1">
                     <label htmlFor="email">E-Mail</label>
-                
+
                     <div className="shrink-0 mt-3 rounded-lg border-orange-400 border-solid border-[0.8px] h-[45px]">
-                      <input type="text" id="email" placeholder="@srmist.edu.in" required name="email" className="h-[42px] w-full "  pattern=".+@srmist\.edu\.in"  title="Please enter a valid email address with the domain @srmist.edu.in"   onChange={handleInputChange} />
+                      <input
+                        type="text"
+                        id="email"
+                        placeholder="@srmist.edu.in"
+                        name="email"
+                        className="h-[42px] w-full "
+                        pattern=".+@srmist\.edu\.in"
+                        required
+                        title="Please enter a valid email address with the domain @srmist.edu.in"
+                        onChange={handleInputChange}
+                      />
                     </div>
                   </div>
                   <div className="flex flex-col flex-1 self-start">
                     <label htmlFor="contact">Contact</label>
                     <div className="shrink-0 mt-3 rounded-lg border-orange-400 border-solid border-[0.8px] h-[45px]">
-                      <input type="number" id="contact" name="contact"  required    pattern="\d{10}"  title="Please enter a 10 digit contact number" className="h-[42px] w-full " onChange={handleInputChange} />
+                      <input
+                        type="number"
+                        id="contact"
+                        name="contact"
+                        pattern="\d{10}"
+                        required
+                        title="Please enter a 10 digit contact number"
+                        className="h-[42px] w-full "
+                        onChange={handleInputChange}
+                      />
                     </div>
                   </div>
                 </div>
@@ -174,13 +237,29 @@ const Info = () => {
                   <div className="flex flex-col flex-1 self-start">
                     <label htmlFor="department">Department</label>
                     <div className="shrink-0 mt-1.5 rounded-lg border-orange-400 border-solid border-[0.8px] h-[45px]">
-                      <input type="text" id="department" required  placeholder=" cse-it" name="department" className="h-[42px] w-full " onChange={handleInputChange} />
+                      <input
+                        type="text"
+                        id="department"
+                        placeholder=" cse-it"
+                        name="department"
+                        required
+                        className="h-[42px] w-full "
+                        onChange={handleInputChange}
+                      />
                     </div>
                   </div>
                   <div className="flex flex-col flex-1">
                     <label htmlFor="section">Section</label>
                     <div className="shrink-0 mt-3 rounded-lg border-orange-400 border-solid border-[0.8px] h-[45px]">
-                      <input type="text" id="section" name="section" required  placeholder=" u1" className="h-[42px] w-full " onChange={handleInputChange} />
+                      <input
+                        type="text"
+                        id="section"
+                        name="section"
+                        placeholder=" u1"
+                        required
+                        className="h-[42px] w-full "
+                        onChange={handleInputChange}
+                      />
                     </div>
                   </div>
                 </div>
@@ -188,13 +267,29 @@ const Info = () => {
                   <div className="flex flex-col flex-1">
                     <label htmlFor="faName">FA Name</label>
                     <div className="shrink-0 mt-3 rounded-lg border-orange-400 border-solid border-[0.8px] h-[45px]">
-                      <input type="text" id="faName"   required name="faName" className="h-[42px] w-full " onChange={handleInputChange} />
+                      <input
+                        type="text"
+                        id="faName"
+                        name="faName"
+                        required
+                        className="h-[42px] w-full "
+                        onChange={handleInputChange}
+                      />
                     </div>
                   </div>
                   <div className="flex flex-col flex-1">
                     <label htmlFor="faContact">FA Contact No</label>
                     <div className="shrink-0 mt-3 rounded-lg border-orange-400 border-solid border-[0.8px] h-[45px]">
-                  <input type="number" id="contact" name="contact"  required    pattern="\d{10}"  title="Please enter a 10 digit contact number" className="h-[42px] w-full " onChange={handleInputChange} />
+                      <input
+                        type="number"
+                        id="contact"
+                        name="contact"
+                        required
+                        pattern="\d{10}"
+                        title="Please enter a 10 digit contact number"
+                        className="h-[42px] w-full "
+                        onChange={handleInputChange}
+                      />
                     </div>
                   </div>
                 </div>
@@ -202,7 +297,13 @@ const Info = () => {
                   Any questions for the speaker?
                 </div>
                 <div className="shrink-0 mt-1.5 rounded-lg border-orange-400 border-solid border-[0.8px] h-[45px] max-md:max-w-full">
-                  <input type="text" id="questions"  name="questions" className="h-[42px] w-full " onChange={handleInputChange} />
+                  <input
+                    type="text"
+                    id="questions"
+                    name="questions"
+                    className="h-[42px] w-full "
+                    onChange={handleInputChange}
+                  />
                 </div>
                 <button
                   className="justify-center items-center self-center px-16 py-3.5 mt-14 mb-4 max-w-full text-2xl font-semibold text-center bg-orange-500 rounded-lg w-[441px] max-md:px-5 max-md:mt-10"
