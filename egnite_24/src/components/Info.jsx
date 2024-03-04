@@ -39,34 +39,34 @@ const Info = () => {
 
   return (
     <>
-          <header class="flex flex-col  sm:flex-col md:flex-col lg:flex-row xl:flex-row gap-5 justify-between mt-14 max-md:flex-wrap max-md:mt-10 max-md:max-w-full">
+          <header className="flex flex-col  sm:flex-col md:flex-col lg:flex-row xl:flex-row gap-5 justify-between mt-14 max-md:flex-wrap max-md:mt-10 max-md:max-w-full">
         {/* Page Tracker */}
         <Track ticketStatus={ticketStatus} download={download} />
 
-        <div class=" sm:flex sm:justify-center sm:items-center md:flex md:justify-center  my-auto w-[100%] h-px  md:w-[100%] lg:w-px lg:h-[540px] xl:w-px xl:h-[580px]  sm:w-[100%] sm:h-px  md:h-px bg-white "></div>
+        <div className=" sm:flex sm:justify-center sm:items-center md:flex md:justify-center  my-auto w-[100%] h-px  md:w-[100%] lg:w-px lg:h-[540px] xl:w-px xl:h-[580px]  sm:w-[100%] sm:h-px  md:h-px bg-white "></div>
 
         {ticketStatus ? (
           <>
-            <div class="flex flex-col  items-center flex-1 max-w-full">
-              <div class="text-5xl mt-4 font-bold text-orange-600">
+            <div className="flex flex-col  items-center flex-1 max-w-full">
+              <div className="text-5xl mt-4 font-bold text-orange-600">
                 <h1>YOUR TICKET</h1>
               </div>
               {/* ticket card */}
 
               {download ? (
                 <>
-                  <div class=" mt-14 lg:mt-36 xl:mt-40 flex flex-col justify-center items-center ">
+                  <div className=" mt-14 lg:mt-36 xl:mt-40 flex flex-col justify-center items-center ">
                     <div>
-                      <h1 class="text-white  text-xl font-medium">
+                      <h1 className="text-white  text-xl font-medium">
                         Your ticket has been downloaded!
                       </h1>
                     </div>
-                    <div class="mt-12 w-[55%] ">
-                      <h1 class="text-xl text-center text-slate-400">
+                    <div className="mt-12 w-[55%] ">
+                      <h1 className="text-xl text-center text-slate-400">
                         Join our whatsapp community and follow our social media
                         for latest updates
                       </h1>
-                      <div class=" mt-4 flex justify-center gap-1">
+                      <div className=" mt-4 flex justify-center gap-1">
                         {/* logo */}
                         <img src="" alt="1" />
                         <img src="" alt="2" />
@@ -78,51 +78,51 @@ const Info = () => {
               ) : (
                 <>
                 {/* // ticket card */}
-                  <div class="h-[60%] mt-14 flex flex-col md:flex-row lg:flex-row xl:flex-row items-center rounded-xl w-full p-7 bg-[#D0580496]">
-                    <div class="w-[80%] sm:w-[75%] lg:w-[60%] md:w-[60%] xl:w-[60%] bg-transparent text-white flex flex-col ">
-                      <div class="bg-transparent">
-                        <h1 class="bg-transparent text-3xl font-semibold text-center sm:text-center md:text-start lg:text-start xl:text-start">
+                  <div className="h-[60%] mt-14 flex flex-col md:flex-row lg:flex-row xl:flex-row items-center rounded-xl w-full p-7 bg-[#D0580496]">
+                    <div className="w-[80%] sm:w-[75%] lg:w-[60%] md:w-[60%] xl:w-[60%] bg-transparent text-white flex flex-col ">
+                      <div className="bg-transparent">
+                        <h1 className="bg-transparent text-3xl font-semibold text-center sm:text-center md:text-start lg:text-start xl:text-start">
                           EGNITE'24
                         </h1>
-                        <div class=" bg-white h-px w-[100%] sm:w-[100%]  md:w-[80%] lg:w-[80%] xl:w-[80%] mt-2"></div>
+                        <div className=" bg-white h-px w-[100%] sm:w-[100%]  md:w-[80%] lg:w-[80%] xl:w-[80%] mt-2"></div>
                       </div>
-                      <div class=" w-[90%] mt-10 gap-2 flex flex-wrap flex-col text-2xl font-bold bg-transparent">
-                        <div class="bg-transparent">
+                      <div className=" w-[90%] mt-10 gap-2 flex flex-wrap flex-col text-2xl font-bold bg-transparent">
+                        <div className="bg-transparent">
                           Name :{" "}
-                          <span class="bg-transparent text-xl font-medium">
+                          <span className="bg-transparent text-xl font-medium">
                             Carl Jackson
                           </span>
                         </div>
-                        <div class="bg-transparent">
+                        <div className="bg-transparent">
                           SRM Reg No :{" "}
-                          <span class="bg-transparent text-xl font-medium">
+                          <span className="bg-transparent text-xl font-medium">
                             RA2XXXXXXXXXXXX
                           </span>{" "}
                         </div>
-                        <div class="bg-transparent">
+                        <div className="bg-transparent">
                           Srm Mail Id :{" "}
-                          <span class="bg-transparent text-xl font-medium">
+                          <span className="bg-transparent text-xl font-medium">
                             sb1355@srmist.edu.in{" "}
                           </span>{" "}
                         </div>
-                        {/* <button class=" mt-2 p-2 text-center font-medium bg-white text-black">
+                        {/* <button className=" mt-2 p-2 text-center font-medium bg-white text-black">
                           BAR CODE
                         </button> */}
                       </div>
                     </div>
-                    <div class="mt-4 md:mt-0 lg:mt-0 xl:mt-0 h-px w-[80%]   lg:w-px lg:h-[260px]  xl:w-px xl:h-[260px]  md:w-px md:h-[260px]   text-white bg-white"></div>
-                    <div class=" mt-4 md:mt-0 lg:mt-0 xl:mt-0 w-[40%] bg-transparent flex  justify-center items-center">
-                      <div class="bg-slate-300 border border-blue-50 h-50 w-50">
+                    <div className="mt-4 md:mt-0 lg:mt-0 xl:mt-0 h-px w-[80%]   lg:w-px lg:h-[260px]  xl:w-px xl:h-[260px]  md:w-px md:h-[260px]   text-white bg-white"></div>
+                    <div className=" mt-4 md:mt-0 lg:mt-0 xl:mt-0 w-[40%] bg-transparent flex  justify-center items-center">
+                      <div className="bg-slate-300 border border-blue-50 h-50 w-50">
 
                         {/* // QR code */}
-                        <img src={qrCode} alt="Qr" class=" bg-slate-200 text-black h-50 w-50" />
+                        <img src={qrCode} alt="Qr" className=" bg-slate-200 text-black h-50 w-50" />
                       </div>
                     </div>
                   </div>
                   {/* btn */}
-                  <div class="items-end mt-12 mb-4 sm:mb-0 md:mb-0 lg:mb-0 xl:mb-0">
+                  <div className="items-end mt-12 mb-4 sm:mb-0 md:mb-0 lg:mb-0 xl:mb-0">
                     <button
-                      class=" rounded-md bg-orange-600 p-2  w-72 text-center font-semibold text-white text-xl"
+                      className=" rounded-md bg-orange-600 p-2  w-72 text-center font-semibold text-white text-xl"
                       onClick={handleTicketDownload}
                     >
                       DOWNLOAD
@@ -134,22 +134,22 @@ const Info = () => {
           </>
         ) : (
           <>
-            <div class="flex flex-col flex-1 text-xl text-white max-md:max-w-full">
-              <div class="justify-center self-center px-1 py-1  font-light text-black whitespace-nowrap rounded-full bg-zinc-300 ">
+            <div className="flex flex-col flex-1 text-xl text-white max-md:max-w-full">
+              <div className="justify-center self-center px-1 py-1  font-light text-black whitespace-nowrap rounded-full bg-zinc-300 ">
                 <img
                   src="https://i.ibb.co/7zv3Y3t/Rectangle-1-1.png"
                   alt=""
-                  class="h-32 sm:h-40 sm:w-40 md:h-40 md:w-40 lg:h-40 lg:w-40 xl:h-40 xl:w-40 w-32 rounded-full"
+                  className="h-32 sm:h-40 sm:w-40 md:h-40 md:w-40 lg:h-40 lg:w-40 xl:h-40 xl:w-40 w-32 rounded-full"
                 />
               </div>
-              <div class="self-center mt-5 text-base text-center">
+              <div className="self-center mt-5 text-base text-center">
 
                 {/* user name */}
                 Hi, ABCD EFGH
               </div>
 
                 {/* user refi name */}
-              <div class="self-center mt-3.5 text-base text-center">
+              <div className="self-center mt-3.5 text-base text-center">
                 RA2XXXXXXXXXXX
               </div>
 

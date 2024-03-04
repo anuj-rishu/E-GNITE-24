@@ -1,9 +1,38 @@
 import React, { useState, useEffect } from "react";
-import { Navbar } from "./Navbar";
-import { FaArrowRightToBracket } from "react-icons/fa6";
+import { useHistory } from "react-router-dom";
+import { initializeApp } from "firebase/app";
+import {
+  getAuth,
+  signInWithRedirect,
+  getRedirectResult,
+  GoogleAuthProvider,
+} from "firebase/auth";
+
+// Your Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyAapoRNH_Kk-m3hNoaCK3JEUofij03Jc1A",
+  authDomain: "egnite24-login.firebaseapp.com",
+  databaseURL: "https://egnite24-login-default-rtdb.firebaseio.com",
+  projectId: "egnite24-login",
+  storageBucket: "egnite24-login.appspot.com",
+  messagingSenderId: "1046601159584",
+  appId: "1:1046601159584:web:9fc363e38c1a1d87878ac5",
+  measurementId: "G-8DN04L1KCQ",
+};
+
+// Initialize Firebase app
+const app = initializeApp(firebaseConfig);
+
+// Get authentication instance
+const auth = getAuth(app);
 
 const Landing = () => {
-  // State to store timer values
+  const history = useHistory();
+  const [userData, setUserData] = useState({
+    photoURL: null,
+    email: null,
+    name: null,
+  });
   const [timerValues, setTimerValues] = useState([
     { label: "DAYS", value: 0 },
     { label: "HOURS", value: 0 },
@@ -11,45 +40,71 @@ const Landing = () => {
     { label: "SEC", value: 0 },
   ]);
 
-  // Timer function
   const calculateTimeRemaining = () => {
-    // Get the current date and time
     const now = new Date().getTime();
-
-    // Replace the following line with your event date and time
     const eventTime = new Date("2024-03-15T13:24:00").getTime();
-
     const timeRemaining = eventTime - now;
-
     const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
-    const hours = Math.floor(
-      (timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
-    );
-    const minutes = Math.floor(
-      (timeRemaining % (1000 * 60 * 60)) / (1000 * 60)
-    );
+    const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
 
-    // Update the timer values in state
-    setTimerValues([
+    return [
       { label: "DAYS", value: days },
       { label: "HOURS", value: hours },
       { label: "MIN", value: minutes },
       { label: "SEC", value: seconds },
-    ]);
+    ];
   };
 
   useEffect(() => {
-    calculateTimeRemaining();
+    setTimerValues(calculateTimeRemaining());
 
-    // Update the timer every second
     const timerInterval = setInterval(() => {
-      calculateTimeRemaining();
+      setTimerValues(calculateTimeRemaining());
     }, 1000);
 
-    // Clean up the interval to prevent memory leaks
     return () => clearInterval(timerInterval);
   }, []);
+
+  const handleGoogleSignIn = async () => {
+    try {
+      const provider = new GoogleAuthProvider();
+      await signInWithRedirect(auth, provider);
+    } catch (error) {
+      console.error("Error during Google sign-in:", error);
+    }
+  };
+
+  useEffect(() => {
+    const handleRedirect = async () => {
+      try {
+        const result = await getRedirectResult(auth);
+
+        if (result && result.user) {
+          console.log("Successfully signed in with Google:", result.user);
+          setUserData(result.user);
+          localStorage.setItem("userData", JSON.stringify(result.user));
+        }
+
+        if (userData) {
+          history.replace("/about");
+        }
+      } catch (error) {
+        console.error("Error during Google sign-in redirect:", error);
+      }
+    };
+
+    handleRedirect();
+  }, [auth, history, userData]);
+  
+
+  useEffect(() => {
+    if (userData.email) {
+      console.log("Redirecting to /about");
+      window.location.href = "/about";
+    }
+  }, [userData]);
 
   return (
     <>
@@ -65,7 +120,7 @@ const Landing = () => {
               animi magni commodi inventore eligendi, dolor debitis voluptatum.
               Esse iure itaque tempore? Nobis libero quidem ratione, soluta
               doloribus, deleniti totam dolorem aspernatur, id officiis fugiat.
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil
+              Lorem ipsum  dolor sit amet consectetur adipisicing elit. Nihil
               cupiditate expedita, a, ipsum magni alias, dolores quaerat qui
               explicabo officiis iste corrupti repellat rem? Eaque, culpa.
               Voluptatem architecto voluptatibus tenetur, fuga eius quas. Nobis,
@@ -78,33 +133,38 @@ const Landing = () => {
           <div className="mt-16 flex justify-center md:justify-normal lg:justify-normal xl:justify-normal items-center">
             <div className="grid grid-flow-col gap-5 text-center auto-cols-max">
               {timerValues.map((timer, index) => (
-                <>
+                <React.Fragment key={index}>
                   <div
-                    key={index}
-                    className="flex flex-col p-2  font-semibold rounded-box text-[#FB771B]"
+                    className="flex flex-col p-2 font-semibold rounded-box text-[#FB771B]"
                   >
-                    <span className="countdown flex justify-center  font-semibold font-mono text-2xl sm:text-5xl md:text-5xl lg:text-6xl xl:text-6xl">
+                    <span className="countdown flex justify-center font-semibold font-mono text-2xl sm:text-5xl md:text-5xl lg:text-6xl xl:text-6xl">
                       {timer.value}
                     </span>
                     {timer.label}
                   </div>
                   {index !== timerValues.length - 1 && (
-                    <p className="flex  mb-8 sm:flex md:flex lg:flex xl:flex items-center text-2xl sm:text-3xl md:text-3xl lg:text-3xl xl:text-3xl font-bold  sm:font-extrabold md:font-extrabold lg:font-extrabold xl:font-extrabold">
+                    <p
+                      key={`separator-${index}`}
+                      className="flex mb-8 sm:flex md:flex lg:flex xl:flex items-center text-2xl sm:text-3xl md:text-3xl lg:text-3xl xl:text-3xl font-bold sm:font-extrabold md:font-extrabold lg:font-extrabold xl:font-extrabold"
+                    >
                       :
                     </p>
                   )}
-                </>
+                </React.Fragment>
               ))}
+
             </div>
           </div>
           <div className=" mb-2 mt-6 md:mt-6 lg:mt-10 xl:mt-20  flex justify-center items-center">
-            <button className="rounded-lg px-3 py-2 bg-[#FB771B] flex items-center justify-center font-medium sm:font-semibold md:font-semibold lg:font-semibold xl:font-semibold text-white  text-xl sm:text-xl md:text-xl lg:text-xl xl:text-xl">
-              Register with Google
-              <FaArrowRightToBracket
-                className="ml-2 flex items-center"
-                style={{ backgroundColor: "transparent" }}
-              />{" "}
+            <button
+              onClick={handleGoogleSignIn}
+              className="rounded-lg px-6 py-3 bg-gradient-to-r from-[#FF8C00] to-[#FF0000] flex items-center justify-center font-medium text-white text-2xl shadow-md hover:shadow-lg transition duration-300"
+              style={{ borderRadius: "5px" }}
+            >
+              Sign In with Google
             </button>
+
+
           </div>
         </div>
         {/* right */}
