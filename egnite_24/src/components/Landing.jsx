@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Navbar } from "./Navbar";
 import { FaArrowRightToBracket } from "react-icons/fa6";
 import Speaker from "./Speaker";
+import Link from "next/link";
 
 const Landing = () => {
   // State to store timer values
@@ -95,13 +96,13 @@ const Landing = () => {
             </div>
           </div>
           <div className=" mb-2 mt-6 md:mt-6 lg:mt-10 xl:mt-20  flex justify-center items-center">
-            <a href="/register" className="rounded-lg px-3 py-2 bg-[#FB771B] flex items-center justify-center font-medium sm:font-semibold md:font-semibold lg:font-semibold xl:font-semibold text-white  text-xl sm:text-xl md:text-xl lg:text-xl xl:text-xl">
+            <Link href="/register" className="rounded-lg px-3 py-2 bg-[#FB771B] flex items-center justify-center font-medium sm:font-semibold md:font-semibold lg:font-semibold xl:font-semibold text-white  text-xl sm:text-xl md:text-xl lg:text-xl xl:text-xl">
               Register with Google
               <FaArrowRightToBracket
                 className="ml-2 flex items-center"
                 style={{ backgroundColor: "transparent" }}
               />{" "}
-            </a>
+            </Link>
           </div>
         </div>
         {/* right */}
@@ -109,7 +110,7 @@ const Landing = () => {
           {/* image */}
           
 
-            <img src="/l_bg.svg" className=" relative   shadow-xl top-0  w-[100%] h-fit " alt="" />
+            <img src="/l_bg.svg" className=" relative   shadow-xl top-0  w-[100%] h-fit " alt="Ishan Sharma" />
           
           
           

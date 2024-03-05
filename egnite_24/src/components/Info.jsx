@@ -9,6 +9,8 @@ import { IoLogoWhatsapp } from "react-icons/io";
 import { FaLinkedin } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";
 
+import Link from "next/link";
+
 const Info = () => {
   const [download, setDownload] = useState(false);
   const [formData, setFormData] = useState({});
@@ -78,36 +80,36 @@ const Info = () => {
                       <div class=" mt-4 flex justify-center  text-orange-500 text-2xl gap-4">
                         {/* logo */}
 
-                        <a
+                        <Link
                           href="https://chat.whatsapp.com/LrLQvmr7vhJ56U96kYYabz"
                           target="_blank"
                           rel="noopener noreferrer"
                         >
                           <IoLogoWhatsapp />
-                        </a>
-                        <a
+                        </Link>
+                        <Link
                           href="https://www.instagram.com/ecell_srmist/"
                           target="_blank"
                           rel="noopener noreferrer"
                         >
                           <RiInstagramFill />
-                        </a>
+                        </Link>
 
-                        <a
+                        <Link
                           href="https://www.linkedin.com/company/e-cell-srmist/mycompany/"
                           target="_blank"
                           rel="noopener noreferrer"
                         >
                           <FaLinkedin />
-                        </a>
+                        </Link>
 
-                        <a
+                        <Link
                           href="https://twitter.com/ecellsrmist"
                           target="_blank"
                           rel="noopener noreferrer"
                         >
                           <FaTwitter />
-                        </a>
+                        </Link>
                       </div>
                     </div>
                   </div>
@@ -187,7 +189,7 @@ const Info = () => {
               <div class="justify-center self-center px-1 py-1  font-light text-black whitespace-nowrap rounded-full bg-zinc-300 ">
                 <img
                   src="/logo.svg"
-                  alt=""
+                  alt="logo"
                   class="h-32 sm:h-40 sm:w-40 md:h-40 md:w-40 lg:h-40 lg:w-40 xl:h-40 xl:w-40 w-32 rounded-full"
                 />
               </div>

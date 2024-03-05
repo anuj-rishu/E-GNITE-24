@@ -24,7 +24,7 @@ export const Navbar = () => {
     <div className="flex justify-between bg-black  z-50 ">
       <div className="flex justify-start">
        
-          <img href="/" src="/logo.svg" className="h-32 w-40" alt="" />
+          <img href="/" src="/logo.svg" className="h-32 w-40" alt="Ecell" />
         
       </div>
       <div className="flex m-0">

@@ -13,6 +13,7 @@ const Track = ({ ticketStatus, download }) => {
             loading="lazy"
             src="https://cdn.builder.io/api/v1/image/assets/TEMP/64a7e74ed2a1a1e12cf647fbd737faa53e5991c4f2668baaa0b4b0f14e0977c6?apiKey=033e0929b6f8436697d44eb51eae1ca6&"
             class="w-8 aspect-square"
+            alt="1"
           />
           <div class="flex-auto">
             <span class="hidden  md:inline lg:inline xl:inline">Register</span>
@@ -27,6 +28,7 @@ const Track = ({ ticketStatus, download }) => {
                 loading="lazy"
                 src="https://cdn.builder.io/api/v1/image/assets/TEMP/64a7e74ed2a1a1e12cf647fbd737faa53e5991c4f2668baaa0b4b0f14e0977c6?apiKey=033e0929b6f8436697d44eb51eae1ca6&"
                 class="w-8 lg:mt-4 xl:mt-4  ml-2 aspect-square"
+                alt="2"
               />
               <div class="flex lg:mt-4  xl:mt-4 items-center">
                 <span class="hidden  md:inline lg:inline xl:inline">
@@ -61,6 +63,7 @@ const Track = ({ ticketStatus, download }) => {
                   loading="lazy"
                   src="https://cdn.builder.io/api/v1/image/assets/TEMP/64a7e74ed2a1a1e12cf647fbd737faa53e5991c4f2668baaa0b4b0f14e0977c6?apiKey=033e0929b6f8436697d44eb51eae1ca6&"
                   class="w-8 lg:mt-4 xl:mt-4  ml-2 aspect-square"
+                  alt="3"
                 />
                 <div class="flex lg:mt-4  xl:mt-4 items-center">
                   <span class="hidden  md:inline lg:inline xl:inline">

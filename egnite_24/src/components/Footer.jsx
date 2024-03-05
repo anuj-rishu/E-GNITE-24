@@ -4,6 +4,8 @@ import { IoLogoWhatsapp } from "react-icons/io";
 import { FaLinkedin } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";
 
+import Link from "next/link";
+
 const Footer = () => {
   return (
     <>
@@ -28,7 +30,7 @@ const Footer = () => {
             <p className="bg-transparent mt-3 text-center">+91 12345 67890 - Coordinator</p>
             
             <div className="flex gap-2 mt-4  bg-transparent">
-              <a
+              <Link
                 href="https://chat.whatsapp.com/LrLQvmr7vhJ56U96kYYabz"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -36,33 +38,33 @@ const Footer = () => {
                 className="bg-transparent"
               >
                 <IoLogoWhatsapp className="bg-transparent " />
-              </a>
-              <a
+              </Link>
+              <Link
                 href="https://www.instagram.com/ecell_srmist/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-transparent"
               >
                 <RiInstagramFill className="bg-transparent " />
-              </a>
+              </Link>
 
-              <a
+              <Link
                 href="https://www.linkedin.com/company/e-cell-srmist/mycompany/"
                 target="_blank"
                 rel="noopener noreferrer"
                className="bg-transparent"
               >
                 <FaLinkedin className="bg-transparent " />
-              </a>
+              </Link>
 
-              <a
+              <Link
                 href="https://twitter.com/ecellsrmist"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-transparent"
               >
                 <FaTwitter className="bg-transparent" />
-              </a>
+              </Link>
             </div>
 
 
