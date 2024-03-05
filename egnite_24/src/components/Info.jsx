@@ -47,7 +47,7 @@ const Info = () => {
   };
 
   return (
-    <>
+    <> <div className="min-h-screen">
       <header class="flex flex-col  sm:flex-col md:flex-col lg:flex-row xl:flex-row gap-5 justify-between mt-14 max-md:flex-wrap max-md:mt-10 max-md:max-w-full">
         {/* Page Tracker */}
         <Track ticketStatus={ticketStatus} download={download} />
@@ -116,7 +116,9 @@ const Info = () => {
                 <>
                   {/* // ticket card */}
 
-                  <div></div>
+                   {/* // ticket card */}
+
+                   <div></div>
                   <div
                     ref={ticketRef}
                     class="h-[60%] mt-0 flex flex-col md:flex-row lg:flex-row xl:flex-row items-center rounded-xl w-full p-7 bg-[#D0580496]"
@@ -129,27 +131,29 @@ const Info = () => {
                         <div class=" bg-white h-px w-[100%] sm:w-[100%]  md:w-[80%] lg:w-[80%] xl:w-[80%] mt-2"></div>
                       </div>
                       <div class=" w-[90%] mt-10 gap-2 flex flex-wrap flex-col text-2xl font-bold bg-transparent">
+                        {/* //user name */}
                         <div class="bg-transparent">
                           Name :{" "}
                           <span class="bg-transparent text-xl font-medium">
-                            Carl Jackson
+                            {formData.stuname}
                           </span>
                         </div>
+
+                        {/* //user register number */}
                         <div class="bg-transparent">
-                          SRM Reg No :{" "}
+                          Reg No :{" "}
                           <span class="bg-transparent text-xl font-medium">
-                            RA2XXXXXXXXXXXX
+                            {formData.registerNumber}
                           </span>{" "}
                         </div>
+
+                        {/* //user email id*/}
                         <div class="bg-transparent">
                           Srm Mail Id :{" "}
                           <span class="bg-transparent text-xl font-medium">
-                            sb1355@srmist.edu.in{" "}
+                            {formData.email}
                           </span>{" "}
                         </div>
-                        {/* <button class=" mt-2 p-2 text-center font-medium bg-white text-black">
-                          BAR CODE
-                        </button> */}
                       </div>
                     </div>
                     <div class="mt-4 md:mt-0 lg:mt-0 xl:mt-0 h-px w-[80%]   lg:w-px lg:h-[260px]  xl:w-px xl:h-[260px]  md:w-px md:h-[260px]   text-white bg-white"></div>
@@ -182,23 +186,53 @@ const Info = () => {
             <div class="flex flex-col flex-1 text-xl text-white max-md:max-w-full">
               <div class="justify-center self-center px-1 py-1  font-light text-black whitespace-nowrap rounded-full bg-zinc-300 ">
                 <img
-                  src="https://i.ibb.co/7zv3Y3t/Rectangle-1-1.png"
+                  src="/logo.svg"
                   alt=""
                   class="h-32 sm:h-40 sm:w-40 md:h-40 md:w-40 lg:h-40 lg:w-40 xl:h-40 xl:w-40 w-32 rounded-full"
                 />
               </div>
               <div class="self-center mt-5 text-base text-center">
                 {/* user name */}
-                Hi, ABCD EFGH
               </div>
 
               {/* user refi name */}
-              <div class="self-center mt-3.5 text-base text-center">
+              {/* <div class="self-center mt-3.5 text-base text-center">
                 RA2XXXXXXXXXXX
-              </div>
+              </div> */}
 
               {/* /main form */}
               <form className="flex flex-col" onSubmit={handleTicketGeneration}>
+                <div className="flex gap-5 justify-between pt-2 mt-5 whitespace-nowrap max-md:flex-wrap">
+                  <div className="flex flex-col flex-1">
+                    <label htmlFor="registerNumber">Name</label>
+                    <div className="shrink-0 mt-3 rounded-lg border-orange-400 border-solid border-[0.8px] h-[45px]">
+                      <input
+                        type="text"
+                        id="stuname"
+                        name="stuname"
+                        required
+                     
+                        title="Please enter only letters"
+                        className="h-[42px] w-full"
+                        onChange={handleInputChange}
+                      />
+                    </div>
+                  </div>
+                  <div className="flex flex-col flex-1 self-start">
+                    <label htmlFor="registerNumber">Register Number</label>
+                    <div className="shrink-0 mt-3 rounded-lg border-orange-400 border-solid border-[0.8px] h-[45px]">
+                      <input
+                        type="text"
+                        id="registerNumber"
+                        name="registerNumber"
+                        required
+                        className="h-[42px] w-full"
+                        onChange={handleInputChange}
+                      />
+                    </div>
+                  </div>
+                </div>
+
                 <div className="flex gap-5 justify-between pt-2 mt-5 whitespace-nowrap max-md:flex-wrap">
                   <div className="flex flex-col flex-1">
                     <label htmlFor="email">E-Mail</label>
@@ -210,9 +244,9 @@ const Info = () => {
                         placeholder="@srmist.edu.in"
                         name="email"
                         className="h-[42px] w-full "
-                        pattern=".+@srmist\.edu\.in"
+                        pattern="[a-z]{2}[0-9a-zA-Z]{4}@srmist\.edu\.in"
                         required
-                        title="Please enter a valid email address with the domain @srmist.edu.in"
+                        title="Please enter a valid email address with the domain aa11@srmist.edu.in"
                         onChange={handleInputChange}
                       />
                     </div>
@@ -221,13 +255,13 @@ const Info = () => {
                     <label htmlFor="contact">Contact</label>
                     <div className="shrink-0 mt-3 rounded-lg border-orange-400 border-solid border-[0.8px] h-[45px]">
                       <input
-                        type="number"
+                        type="tel"
                         id="contact"
                         name="contact"
-                        pattern="\d{10}"
+                        pattern="[0-9]{8,10}"
                         required
                         title="Please enter a 10 digit contact number"
-                        className="h-[42px] w-full "
+                        className="h-[42px] w-full"
                         onChange={handleInputChange}
                       />
                     </div>
@@ -271,23 +305,25 @@ const Info = () => {
                         type="text"
                         id="faName"
                         name="faName"
+                        pattern="[A-Za-z]+"
+                        title="Please enter only letters"
                         required
-                        className="h-[42px] w-full "
+                        className="h-[42px] w-full"
                         onChange={handleInputChange}
                       />
                     </div>
                   </div>
                   <div className="flex flex-col flex-1">
-                    <label htmlFor="faContact">FA Contact No</label>
+                    <label htmlFor="registerNumber">FA Conatct</label>
                     <div className="shrink-0 mt-3 rounded-lg border-orange-400 border-solid border-[0.8px] h-[45px]">
                       <input
-                        type="number"
-                        id="contact"
-                        name="contact"
+                        type="text"
+                        id="faContact"
+                        name="faContact"
+                        pattern="[0-9]{8,10}"
                         required
-                        pattern="\d{10}"
                         title="Please enter a 10 digit contact number"
-                        className="h-[42px] w-full "
+                        className="h-[42px] w-full"
                         onChange={handleInputChange}
                       />
                     </div>
@@ -299,9 +335,10 @@ const Info = () => {
                 <div className="shrink-0 mt-1.5 rounded-lg border-orange-400 border-solid border-[0.8px] h-[45px] max-md:max-w-full">
                   <input
                     type="text"
-                    id="questions"
-                    name="questions"
-                    className="h-[42px] w-full "
+                    id="question"
+                    name="question"
+                    pattern="[A-Za-z]+"
+                    className="h-[42px] w-full"
                     onChange={handleInputChange}
                   />
                 </div>
@@ -316,8 +353,15 @@ const Info = () => {
           </>
         )}
       </header>
+
+
+
+
+    </div>
+      
     </>
   );
 };
 
 export default Info;
+

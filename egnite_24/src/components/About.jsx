@@ -8,7 +8,7 @@ const About = () => {
 
     {/* <h1 className='text-white'>About page</h1> */}
 
-    <Info />
+    {/* <Info /> */}
     </div>
     </>
   )
