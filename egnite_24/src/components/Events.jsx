@@ -3,7 +3,7 @@ import React from 'react'
 const Events = () => {
   return (
     <>
-    <div className='min-h-screen bg-slate-300'>
+    <div className='min-h-screen '>
 
     <h1 className='text-white'>event page</h1>
     </div>

@@ -12,8 +12,8 @@ export const Navbar = () => {
   // array of objects for nav items
   const navItems = [
     { id: 1, label: "Home", path: "/" },
-    { id: 2, label: "About", path: "/about" },
-    { id: 3, label: "Events", path: "/events" },
+    { id: 2, label: "About", path: "/" },
+    { id: 3, label: "Events", path: "/" },
     { id: 4, label: "Help", path: "#footer" },
   ];
   const handleItemClick = (itemId) => {
