@@ -3,6 +3,7 @@ import { Navbar } from "./Navbar";
 import { FaArrowRightToBracket } from "react-icons/fa6";
 import Speaker from "./Speaker";
 import Link from "next/link";
+import Image from "next/image";
 
 const Landing = () => {
   // State to store timer values
@@ -19,7 +20,7 @@ const Landing = () => {
     const now = new Date().getTime();
 
     // Replace the following line with your event date and time
-    const eventTime = new Date("2024-03-15T13:24:00").getTime();
+    const eventTime = new Date("2024-03-18T11:00:00").getTime();
 
     const timeRemaining = eventTime - now;
 
@@ -59,17 +60,11 @@ const Landing = () => {
         {/* left  */}
         <div className=" z-20 w-full md:w-full lg:w-[50%] xl:w-[50%] ">
           <div className="  min-h-64 ">
-            <h1 className="font-bold text-6xl md:text-6xl lg:text-7xl xl:text-8xl ">
+            <h1 className="font-bold  cinzel-font text-6xl md:text-6xl lg:text-7xl xl:text-8xl ">
               <span className="text-[#FB771B]">EGNITE'</span>24
             </h1>
-            <p className="mt-4  text-base md:text-base lg:text-xl xl:text-xl text-justify">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore
-              animi magni commodi inventore eligendi, dolor debitis voluptatum.
-              Esse iure itaque tempore? Nobis libero quidem ratione, soluta
-              doloribus, deleniti totam dolorem aspernatur, id officiis fugiat.
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil
-              cupiditate expedita, a, ipsum magni alias, dolores quaerat qui
-              explicabo officiis iste corrupti repellat rem?
+            <p className="mt-4  text-base md:text-base lg:text-xl xl:text-xl 2xl:text-2xl text-justify">
+            Are you brimming with innovative ideas but unsure how to take the next step? Look no further than E-GNITE, the ultimate event designed to ignite your entrepreneurial spirit!  Connect with a vibrant community of like-minded visionaries, eager to share their passion and fuel yours. Learn from industry experts who will equip you with the knowledge and skills needed to turn your ideas into reality. Don't miss this incredible opportunity to network, grow, and set the stage ablaze with groundbreaking concepts. Join us at E-GNITE and ignite your path to entrepreneurial success!
             </p>
           </div>
           {/* timer */}
@@ -97,7 +92,7 @@ const Landing = () => {
           </div>
           <div className=" mb-2 mt-6 md:mt-6 lg:mt-10 xl:mt-20  flex justify-center items-center">
             <Link href="/register" className="rounded-lg px-3 py-2 bg-[#FB771B] flex items-center justify-center font-medium sm:font-semibold md:font-semibold lg:font-semibold xl:font-semibold text-white  text-xl sm:text-xl md:text-xl lg:text-xl xl:text-xl">
-              Register with Google
+              Register Now
               <FaArrowRightToBracket
                 className="ml-2 flex items-center"
                 style={{ backgroundColor: "transparent" }}
@@ -110,7 +105,7 @@ const Landing = () => {
           {/* image */}
           
 
-            <img src="/l_bg.svg" className=" relative   shadow-xl top-0  w-[100%] h-fit " alt="Ishan Sharma" />
+            <Image src="/l_bg.svg" width={100} height={100} className=" relative   shadow-xl top-0  w-[100%] h-fit " alt="Ishan Sharma" />
           
           
           

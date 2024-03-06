@@ -14,11 +14,13 @@ const Footer = () => {
           
           <div className="  hidden sm:flex sm:ml-8 md:ml-0 lg:ml-0 xl:ml-0 md:flex lg:flex xl:flex sm:w-[40%] md:w-[70%] lg:w-[70%] xl:w-[70%]  flex-col bg-transparent">
             <div className="sm:self-center md:self-start lg:self-start xl:self-start bg-transparent">
-              <h1 className="text-white text-xl md:text-2xl lg:text-3xl xl:text-3xl
+              <h1 className="text-white cinzel-font text-xl md:text-2xl lg:text-3xl xl:text-3xl 2xl:text-3xl
                 text-center pt-5 font-semibold bg-transparent">E-GNITE 24</h1>
             </div>
             <p className=" hidden md:flex lg:flex xl:flex mt-4 pr-2 bg-transparent text-justify ">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta similique, error sequi veritatis hic vitae obcaecati libero neque voluptas. Odio fugiat provident unde labore consequatur maiores modi aspernatur architecto porro? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente, ad. Consectetur a, praesentium perspiciatis soluta accusantium minus aperiam corrupti rem quis ea eos, modi error tempore. Nam incidunt delectus adipisci.
+            Get ready to ignite your entrepreneurial spirit with E-GNITE, the 
+flagship event of E-Cell SRMIST. This annual celebration of entrepreneurship is the perfect opportunity to connect with like-minded individuals, explore the world of business, and gain the 
+confidence you need to succeed. With cutting-edge ideas, innovative thinking, and a focus on creativity, E-GNITE is sure to leave you feeling inspired and motivated.
             </p>
             <p className="hidden sm:inline md:hidden lg:hidden xl:hidden bg-transparent mt-4 ml-2 text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, quasi nemo unde quam atque rem. Dolorum architecto cupiditate corrupti non?</p>
 
@@ -27,9 +29,11 @@ const Footer = () => {
             
 
             <h1 className="bg-transparent text-2xl md:text-2xl lg:text-3xl xl:text-3xl pt-5 text-white font-semibold">Reach Out to Us</h1>
-            <p className="bg-transparent mt-3 text-center">+91 12345 67890 - Coordinator</p>
+            <p className="bg-transparent mt-3 text-center">
+              <a className="bg-transparent" href="tel:+919879196604 ">+91 98791 96604 </a>- Coordinator
+              </p>
             
-            <div className="flex gap-2 mt-4  bg-transparent">
+            <div className="flex gap-2 mt-4 text-2xl  bg-transparent">
               <Link
                 href="https://chat.whatsapp.com/LrLQvmr7vhJ56U96kYYabz"
                 target="_blank"

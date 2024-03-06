@@ -206,7 +206,7 @@ const Info = () => {
               <form className="flex flex-col" onSubmit={handleTicketGeneration}>
                 <div className="flex gap-5 justify-between pt-2 mt-5 whitespace-nowrap max-md:flex-wrap">
                   <div className="flex flex-col flex-1">
-                    <label htmlFor="registerNumber">Name</label>
+                    <label htmlFor="registerNumber">Full Name</label>
                     <div className="shrink-0 mt-3 rounded-lg border-orange-400 border-solid border-[0.8px] h-[45px]">
                       <input
                         type="text"
@@ -227,6 +227,7 @@ const Info = () => {
                         type="text"
                         id="registerNumber"
                         name="registerNumber"
+                        pattern="[A-Z0-9]*"
                         required
                         className="h-[42px] w-full"
                         onChange={handleInputChange}
@@ -243,7 +244,7 @@ const Info = () => {
                       <input
                         type="text"
                         id="email"
-                        placeholder="@srmist.edu.in"
+                    
                         name="email"
                         className="h-[42px] w-full "
                         pattern="[a-z]{2}[0-9a-zA-Z]{4}@srmist\.edu\.in"
@@ -276,7 +277,7 @@ const Info = () => {
                       <input
                         type="text"
                         id="department"
-                        placeholder=" cse-it"
+                        
                         name="department"
                         required
                         className="h-[42px] w-full "
@@ -286,12 +287,12 @@ const Info = () => {
                   </div>
                   <div className="flex flex-col flex-1">
                     <label htmlFor="section">Section</label>
-                    <div className="shrink-0 mt-3 rounded-lg border-orange-400 border-solid border-[0.8px] h-[45px]">
+                    <div className="shrink-0 mt-[0.4rem] rounded-lg border-orange-400 border-solid border-[0.8px] h-[45px]">
                       <input
                         type="text"
                         id="section"
                         name="section"
-                        placeholder=" u1"
+                        
                         required
                         className="h-[42px] w-full "
                         onChange={handleInputChange}
@@ -307,8 +308,8 @@ const Info = () => {
                         type="text"
                         id="faName"
                         name="faName"
-                        pattern="[A-Za-z]+"
-                        title="Please enter only letters"
+                        // pattern="[A-Za-z]+"
+                        // title="Please enter only letters"
                         required
                         className="h-[42px] w-full"
                         onChange={handleInputChange}
@@ -316,7 +317,7 @@ const Info = () => {
                     </div>
                   </div>
                   <div className="flex flex-col flex-1">
-                    <label htmlFor="registerNumber">FA Conatct</label>
+                    <label htmlFor="registerNumber">FA Contact</label>
                     <div className="shrink-0 mt-3 rounded-lg border-orange-400 border-solid border-[0.8px] h-[45px]">
                       <input
                         type="text"
@@ -335,11 +336,11 @@ const Info = () => {
                   Any questions for the speaker?
                 </div>
                 <div className="shrink-0 mt-1.5 rounded-lg border-orange-400 border-solid border-[0.8px] h-[45px] max-md:max-w-full">
-                  <input
+                  <textarea
                     type="text"
                     id="question"
                     name="question"
-                    pattern="[A-Za-z]+"
+                    // pattern="[A-Za-z]+"
                     className="h-[42px] w-full"
                     onChange={handleInputChange}
                   />
