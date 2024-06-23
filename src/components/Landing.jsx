@@ -77,7 +77,8 @@ const Landing = () => {
                     className="flex flex-col p-2  font-semibold rounded-box text-[#FB771B]"
                   >
                     <span className="countdown flex justify-center  font-semibold font-mono text-2xl sm:text-5xl md:text-5xl lg:text-6xl xl:text-6xl">
-                      {timer.value}
+                      {/* {timer.value} */}
+                      0
                     </span>
                     {timer.label}
                   </div>
